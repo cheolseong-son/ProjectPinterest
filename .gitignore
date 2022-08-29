@@ -79,3 +79,4 @@ venv/
 db.sqlite3
 .idea/
 main.py
+__pycache__/
