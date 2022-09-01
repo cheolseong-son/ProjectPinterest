@@ -47,13 +47,15 @@ class AccountDetailView(DetailView):
 # UpdataView
 class AccountUpdateView(UpdateView):
     model = User
+    context_object_name = 'target_user'
     form_class = accountUpdateForm
     success_url = reverse_lazy('accountapp:hello_world') # 로그인 성공시 갈 곳
     template_name = 'accountapp/update.html'
 
 class AccountDeleteView(DeleteView):
     model = User
+    context_object_name = 'target_user'
     success_url = reverse_lazy('accuntapp:login')
     template_name = 'accountapp/delete.html'
 
-    
+
