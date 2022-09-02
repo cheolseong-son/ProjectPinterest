@@ -1,6 +1,3 @@
-from cProfile import Profile
-from dataclasses import fields
-from pyexpat import model
 from django.forms import ModelForm
 from .models import Profile
 
@@ -9,4 +6,4 @@ from .models import Profile
 class ProfileCreationForm(ModelForm):
     class Meta:
         model = Profile
-        fields = ['image', 'nickname', 'message']
+        fields = ['image', 'nickname', 'message'] 

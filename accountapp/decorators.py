@@ -1,6 +1,6 @@
 # 데코레이터를 만듬
 from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect, HttpResponseForbidden
+from django.http import  HttpResponseForbidden
 
 def account_ownership_required(func):
     def decorated(request, *args, **kwargs):

@@ -1,6 +1,3 @@
-from distutils.command.upload import upload
-from email import message
-from urllib import request
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -12,6 +9,3 @@ class Profile(models.Model):
     image = models.ImageField(upload_to = 'profile/', null=True)
     nickname = models.CharField(max_length=20, unique=True, null=True)
     message = models.CharField(max_length=100, null=True)
-
-
-
