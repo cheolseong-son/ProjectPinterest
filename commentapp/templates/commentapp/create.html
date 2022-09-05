@@ -1,0 +1,26 @@
+{% load bootstrap4 %}
+{% block content %}
+<div style="text-align: center; max-width: 400px; margin: 4rem auto;">
+    <div class="mb-4">
+        <h4>
+            Comment Create
+        </h4>
+    </div>
+    <form action="{% url 'commentapp:create' %}" method="post">
+        {% csrf_token %}
+        <!-- {{ form }} -->
+        {% bootstrap_form form %}
+
+        {% if user.is_authenticated %}
+        <input type="submit" class="btn btn-dark rounded-pill col-4 mt-3">
+        {% else %}
+        <!-- ?next={{ request.path }} 로그인후 되돌아 오는 패스 -->
+        <a href="{% url 'accountapp:login' %}?next={{ request.path }}" class="btn btn-dark rounded-pill col-4 mt-3">
+            Log In
+        </a>
+        {% endif %}
+        <!--   -->
+        <input type="hidden" name="article_pk" value="{{ article.pk }}">
+    </form>
+</div>
+{% endblock %}
