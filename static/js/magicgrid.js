@@ -290,9 +290,9 @@ MagicGrid.prototype.listen = function listen () {
 let magicGrid = new MagicGrid({
   container: '.container',
   animate: true,
-  gutter: 30,
+  gutter: 20,
   static: true,
-  useMin: true
+  useMin: true 
 });
 
 // 모든 이미지가 로드가 되었을 때 migicgfid를 포지셔닝 하라는 의미

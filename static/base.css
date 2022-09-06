@@ -10,3 +10,9 @@
 .pinterest_header{
     text-align: center; margin: 2rem 0;
 }
+/* 스크린이 500px이하로 떨어지면 아래가 적용 */
+@media screen and (max-width:500px) {
+    html {
+        font-size: 12px;
+    }
+}

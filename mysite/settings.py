@@ -33,7 +33,8 @@ SECRET_KEY = 'SECRET_KEY'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# 모바일로 웹을 보기 위해
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
