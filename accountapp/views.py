@@ -4,7 +4,6 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponseForbidden
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import accountUpdateForm
-from accountapp.models import HelloWorld
 
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.models import User
@@ -19,25 +18,7 @@ from .decorators import account_ownership_required
 
 from django.views.generic.list import MultipleObjectMixin
 
-
 has_ownership = [account_ownership_required, login_required]
-
-# Create your views here.
-
-@login_required # 데코레이터를 사용하여 로그인 여부 확인
-def hello_world(request):
-    if request.method == "POST":
-        # POST에서 "hello_world_input"이라는 이름의 값을 가져와라
-        temp = request.POST.get('hello_world_input')
-        # 데이터 저장
-        new_hello_world = HelloWorld()
-        new_hello_world.text = temp
-        new_hello_world.save()
-
-        return HttpResponseRedirect(reverse('accountapp:hello_world'))
-    else:
-        hello_world_list = HelloWorld.objects.all()
-        return render(request, 'accountapp/hello_world.html', context={'hello_world_list':hello_world_list})
 
 # 계정
 # reverse_lazy : class에서 사용, 

@@ -10,7 +10,8 @@
         <h2 style="font-family: 'NanumSquareB';">
             {{ target_user.profile.nickname }}
             {% if target_user == user %}
-            <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+            <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}" class="material-icons"
+                style="box-shadow: 0 0 4px #ccc; border-radius: 1rem; padding: 0.2rem;">
                 edit
             </a>
             {% endif %}
@@ -18,6 +19,17 @@
         <h5 style="margin-bottom: 3rem;">
             {{ target_user.profile.message }}
         </h5>
+        {% if target_user == user %}
+
+        <a href="{% url 'accountapp:update' pk=user.pk %}" class="material-icons"
+            style="box-shadow: 0 0 4px #ccc; border-radius: 1rem; padding: 0.2rem;">
+            settings
+        </a>
+        <a href="{% url 'accountapp:delete' pk=user.pk %}" class="material-icons"
+            style="box-shadow: 0 0 4px #fcc; border-radius: 1rem; padding: 0.2rem;">
+            delete_forever
+        </a>
+        {% endif %}
         {% else %}
         {% if target_user == user %}
         <a href="{% url 'profileapp:create' %}">
@@ -30,14 +42,8 @@
             닉네임 미설정
         </h2>
         {% endif %}
-        {% if target_user == user %}
-        <a href="{% url 'accountapp:update' pk=user.pk %}">
-            <p>Change Info</p>
-        </a>
-        <a href="{% url 'accountapp:delete' pk=user.pk %}">
-            <p>Quit</p>
-        </a>
-        {% endif %}
+
+
         {% endif %}
     </div>
 

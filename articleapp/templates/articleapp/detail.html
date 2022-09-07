@@ -3,19 +3,30 @@
 {% block content %}
 <div>
     <div style="text-align: center; max-width: 700px; margin: 4rem auto;">
+
+
         <h1>
             {{ target_article.title }}
         </h1>
+        <div style="height:2rem;">
+            <a href="{% url 'likeapp:article_like' pk=target_article.pk %}">
+                <i class="material-icons" style="vertical-align:middle; font-size:1.3rem; color:#f88;">
+                favorite
+                </i>
+            </a>
+            <span style="vertical-align:middle; font-size:1.2rem;">
+                {{ target_article.like }}
+            </span>
+        </div>
         <h6>
             {{ target_article.writer.profile.nickname }}
         </h6>
         <hr>
         <img src="{{ target_article.image.url }}" alt="" style="width: 100%; border-radius: 1rem; margin: 2rem 0;">
 
-        <p>
-            {{ target_article.content }}
-        </p>
-
+        <div class="text-center">
+            {{ target_article.content | safe }}
+        </div>
         {% if target_article.writer == user %}
         <a href="{% url 'articleapp:update' pk=target_article.pk %}" class="btn btn-primary rounded-pill col-3">
             Update
